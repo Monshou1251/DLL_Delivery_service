@@ -1,30 +1,20 @@
 <template>
   <div class="container">
     <section class="section">
+      <!-- Block 1: Big block with text and buttons -->
       <div class="text-container">
-        <div class="slogan-container">
-          <h1 class="highlighted">From USA Shops to Your Home in Uzbekistan</h1>
-          <!-- <h1 class="highlighted">{{ t('slogan') }}</h1>
-          <p>
-            <span class="small-text">{{ t('from') }}</span>
-            <span class="usa">{{ t('usa') }}</span>
-          </p>
-          <p>
-            <span class="small-text">{{ t('to') }}</span>
-            <span class="uzb">{{ t('uzbekistan') }}</span>
-          </p> -->
+        <h1 class="big-text">From USA Shops to Your Home in Uzbekistan</h1>
+        <p class="small-text">We Deliver What You Need</p>
+        <div class="buttons">
+          <div class="action-button button-1">Quick Guide</div>
+          <div class="action-button button-2">Shops</div>
         </div>
-        <div class="description">
-          <!-- <p class="service-description">{{ t('serviceDescription') }}</p> -->
-          <p class="service-description">We Deliver What You Need</p>
-        </div>
-        <div class="buttons-block"></div>
-        <div>
-          <button>Kek</button>
-        </div>
-        <div>
-          <button>Kek</button>
-        </div>
+      </div>
+
+      <!-- Block 2, 3, 4: Smaller blocks arranged in a row -->
+      <div class="small-blocks">
+        <CardSection v-for="(card, index) in cardData" :key="index" class="small-block" :title="card.title"
+          :percentage="card.percentage" :description="card.description" />
       </div>
     </section>
   </div>
@@ -32,168 +22,153 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
+import CardSection from './Cards/CardSection1.vue';
 
 const { t } = useI18n();
+
+const cardData = [
+  {
+    title: 'Trusted by Thousands',
+    percentage: '98%',
+    description:
+      'With a 98% satisfaction rate, our customers consistently praise us for our reliable service and exceptional care.',
+  },
+  {
+    title: 'Unmatched Speed',
+    percentage: '1200+',
+    description:
+      'Our dedicated team ensures that over 1200 packages reach their destination every month, on time and in perfect condition.',
+  },
+  {
+    title: 'New Customers Each Month',
+    percentage: '500+',
+    description:
+      'Join the 500+ new customers who trust us each month to handle their deliveries with professionalism and efficiency.',
+  },
+];
+
 </script>
 
 <style scoped>
+/* Container settings for responsiveness */
 .container {
   padding-top: 53px;
   min-height: 100vh;
-  background-image: url('@/assets/images/bg-eagle.png');
-  background-size: cover; 
-  background-position: center center; 
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5vh 5vw;
+  border-bottom: dashed 2px var(--silver-color);
 }
 
+/* Section with a fixed max width for responsiveness */
 .section {
-  /* height: calc(80vh - 53px); */
-  display: flex;
-  justify-content: space-between; /* Ensure slogan and description are on opposite sides */
-  align-items: flex-start;
+  max-width: 1170px;
   width: 100%;
-  max-width: 1250px; 
-  margin: 0 auto; 
-  padding: 0 24px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 150px;
+  /* padding: 8% 8%; */
 }
 
+/* Block 1: Big block styles */
 .text-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  flex-direction: column;
+  text-align: center;
+  padding-top: 10%;
 }
 
-.slogan-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 45rem;
-  padding: 10px;
-  border-radius: 20px;
-}
-
-.slogan-container h1,
-.slogan-container p {
-  margin: 0; 
-  line-height: 0.95; 
-}
-
-.highlighted {
-  color: white;
-  font-weight: bold;
-  font-size: 3rem;
-  margin-bottom: 20px; 
-  width: 100%;
-}
-
-.description {
-  line-height: 1.083333;
-  max-width: 45%; /* Adjust the width of the description */
-  padding: 10px;
-  padding-top: 0px;
-  border-radius: 20px;
-  width: 500px;
-}
-
-.service-description {
-  font-size: 20px;
-  line-height: 27px;
-  color: var(--devil-blue-color-2);
-}
-
-.usa {
-  font-weight: 1000;
-  font-size: 3.75rem;
-  margin-right: 5px;
-  margin-left: 5px;
-  color: var(--eye-of-newt-color);
-  
-}
-
-.uzb {
-  margin-right: 5px;
-  margin-left: 5px;
-  font-weight: 1000;
-  font-size: 3.75rem;
-  color: var(--mandarin-sorbet);
+.big-text {
+  font-size: 48px;
+  font-weight: 800;
+  max-width: 742px;
+  line-height: 50px;
+  color: var(--grey-color);
 }
 
 .small-text {
-  font-size: 36px;
-  font-weight: 600;
-  color: #636e72;
+  font-size: 24px;
+  margin-top: 10px;
+  color: #818181;
 }
 
-@media (max-width: 1024px) {
-  .container {
-    height: auto;
-  }
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  font-size: 16px;
+  height: 30px;
+  opacity: 0.8;
 
-  .section {
-    height: calc(60vh - 53px);
-    padding-left: 32px;
-    padding-right: 32px;
-    flex-direction: column;
-  }
-
-  .text-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .slogan-container,
-  .description {
-    max-width: 100%;
-  }
-
-  .highlighted {
-    font-size: 2.5rem;
-  }
-
-  .small-text {
-    font-size: 1.75rem;
-  }
-
-  .usa,
-  .uzb {
-    font-size: 2rem;
-  }
 }
 
-@media (max-width: 480px) {
+
+.button-1 {
+  background-color: var(--grey-color);
+  color: #fff;
+}
+
+.button-1:hover {
+  transform: scale(1.01);
+  opacity: 1;
+
+}
+
+.button-2:hover {
+  transform: scale(1.01);
+  background-color: var(--grey-color);
+  opacity: 1;
+  color: #fff;
+
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  border: 2px solid var(--grey-color);
+  border-radius: 1000px;
+  width: 140px;
+}
+
+/* Block 2, 3, 4: Smaller blocks styles */
+.small-blocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.small-block {
+  width: 300px;
+  height: 260px;
+  /* background-color: #f0f0f0; */
+  border: 4px solid #49494918;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  border-radius: 50px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Responsive settings for tablet */
+@media (max-width: 1170px) {
   .section {
-    height: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    max-width: 828px;
+    gap: 25px;
   }
 
-  .text-container {
-    font-size: 1rem;
-    text-align: left;
-    margin-top: 50px;
-    align-items: center;
-  }
-
-  .highlighted {
-    font-size: 2.5rem;
-  }
-
-  .small-text {
-    font-size: 1.5rem;
-  }
-
-  .usa,
-  .uzb {
-    font-size: 2rem;
-  }
-
-  .service-description {
-    font-size: 0.875rem;
+  .small-blocks {
+    flex-direction: column;
+    gap: 25px;
   }
 }
 </style>

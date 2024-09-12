@@ -3,7 +3,7 @@
         <div class="grid-item">
             <h3>{{ t('sectionFooter.section1Title') }}</h3>
             <ul class="links">
-                <li><a href="/start">{{ t('sectionFooter.start') }}</a></li>
+                <li><a href="#section-one">{{ t('sectionFooter.start') }}</a></li>
                 <li><a href="/tariffs">{{ t('sectionFooter.price') }}</a></li>
                 <li><a href="/faq">{{ t('sectionFooter.faq') }}</a></li>
                 <li><a href="/calculator">{{ t('sectionFooter.calc') }}</a></li>
@@ -15,17 +15,23 @@
             <h3>{{ t('sectionFooter.section2Title') }}</h3>
             <p>{{ t('sectionFooter.country') }}</p>
             <p>109 Rogers Rd, STE 3<br />Wilmington, DE 19801</p>
-            <p>+998 (78) 113 91 09<br />support@delivero.us</p>
+            <p>{{ t('sectionFooter.phone') }}</p>
+            <p>{{ t('sectionFooter.phone2') }}</p>
             <p>{{ t('sectionFooter.fraud') }}: fraud@delivero.us</p>
         </div>
         <div class="grid-item">
-            <img class="logo" src="@/assets/images/logo.png" alt="Logo" />
             <p>{{ t('sectionFooter.delivery') }}</p>
-            <p>{{ t('sectionFooter.sub') }}</p>
-            <div class="social-icons">
-                <a href="https://www.facebook.com" target="_blank"><img src="@/assets/images/facebook-icon.svg" alt="Facebook" /></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="@/assets/images/soc-instagram.svg" alt="Instagram" /></a>
-                <a href="https://www.youtube.com" target="_blank"><img src="@/assets/images/soc-youtube.svg" alt="YouTube" /></a>
+            <div>
+
+                <p>{{ t('sectionFooter.sub') }}</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/DniproLLC" target="_blank"><img
+                            src="@/assets/images/facebook-icon.svg" alt="Facebook" /></a>
+                    <a href="https://www.instagram.com/dnipro.llc/" target="_blank"><img
+                            src="@/assets/images/soc-instagram.svg" alt="Instagram" /></a>
+                    <a href="https://www.youtube.com" target="_blank"><img src="@/assets/images/soc-youtube.svg"
+                            alt="YouTube" /></a>
+                </div>
             </div>
         </div>
         <div class="grid-item section-4">
@@ -49,7 +55,8 @@ const { t } = useI18n();
     padding: 20px;
     background-color: #333;
     color: #fff;
-    font-size: 0.9rem; /* Smaller font size */
+    font-size: 0.9rem;
+    /* Smaller font size */
     box-sizing: border-box;
 }
 
@@ -77,6 +84,7 @@ const { t } = useI18n();
 .links a {
     color: inherit;
     text-decoration: none;
+    line-height: 1.1;
 }
 
 .links a:hover {
@@ -94,8 +102,10 @@ const { t } = useI18n();
 }
 
 .social-icons img {
-    width: 24px; /* Adjust icon size */
-    height: 24px; /* Adjust icon size */
+    width: 24px;
+    /* Adjust icon size */
+    height: 24px;
+    /* Adjust icon size */
 }
 
 .payment-icon {
@@ -120,8 +130,9 @@ const { t } = useI18n();
         padding-left: var(--section-padding-large);
         padding-right: var(--section-padding-large);
     }
+
     .section-4 {
-    justify-content: flex-start;
-}
+        justify-content: flex-start;
+    }
 }
 </style>

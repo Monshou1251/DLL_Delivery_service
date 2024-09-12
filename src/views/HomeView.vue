@@ -3,7 +3,7 @@
     <NavbarComp />
   </nav>
   <main>
-    <section class="snap-section">
+    <section id="section-one" class="snap-section">
       <SectionOne />
     </section>
     <section class="snap-section">
@@ -39,7 +39,7 @@ main {
   /* scroll-snap-type: y mandatory; */
   overflow-y: scroll;
   height: 100vh;
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 .snap-section {
@@ -53,6 +53,7 @@ html {
 }
 
 body {
-  transition: scroll 0.5s ease; /* Adjusts the scrolling speed and smoothness */
+  transition: scroll 0.5s ease;
+  /* Adjusts the scrolling speed and smoothness */
 }
 </style>

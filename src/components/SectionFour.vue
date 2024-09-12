@@ -1,139 +1,345 @@
 <template>
-  <section class="section">
-    <div class="top-text">
-      <div class="big-text">
-        {{ t('sectionFour.whyBeneficial') }}
+  <div class="container">
+    <div class="main-title-block">
+      <div class="main-title">
+        Shipping Cost Calculator
       </div>
-      <div class="small-text">
-        {{ t('sectionFour.beneficialPrices') }}
+      <div class="main-description">
+        Provide some information about your package and calculate the price
       </div>
     </div>
-    <div class="cards">
-      <Card2 title="Amazon" content="sectionFour.description" details="sectionThree.amazonDetail" :imageSrc="amazon"
-        link="https://www.amazon.com" />
-      <Card2 title="Carters" content="sectionFour.kidsClothing" details="sectionThree.cartersDetail" :imageSrc="carters"
-        link="https://www.carters.com" />
-      <Card2 title="6pm" content="sectionFour.multiBrandStore" details="sectionThree.sixDetail" :imageSrc="sixpm"
-        link="https://www.6pm.com" />
-      <Card2 title="6pm" content="sectionFour.multiBrandStore" details="sectionThree.sixDetail" :imageSrc="sixpm"
-        link="https://www.6pm.com" />
+    <div class="cards-block">
+      <div class="left-block">
+        <div class="card">
+          <div class="img-block">
+            <img src="@/assets/images/calculation.png" alt="Image Description">
+          </div>
+          <div class="left-block-description">
+            <div>
+              Pickup from warehouse in Tashkent: free
+            </div>
+            <div>
+              Delivery in Tashkent: $3.00
+            </div>
+            <div>
+              Delivery throughout Uzbekistan: $3.00 (promotion)
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="right-block">
+        <div class="card-right">
+          <div class="input-block">
+            <div class="input-1">
+              Weight*
+              <input type="text" class="card-input" placeholder="10.2">
+            </div>
+            <div class="input-2">
+              Value
+              <input type="text" class="card-input" placeholder="$232">
+            </div>
+            <div class="input-1">
+              Height (cm)*
+              <input type="text" class="card-input" placeholder="25.0">
+            </div>
+            <div class="input-2">
+              Width (cm)*
+              <input type="text" class="card-input" placeholder="25.0">
+            </div>
+            <div class="input-2">
+              Length (cm)*
+              <input type="text" class="card-input" placeholder="125.0">
+            </div>
+          </div>
+          <div class="button-block">
+            <div class="required">
+              required field*
+            </div>
+            <div class="button-calculate">
+              Calculate
+            </div>
+          </div>
+          <div class="result">
+            <div class="result-text">
+              <div class="result-text">
+                Estimated price
+              </div>
+              <div class="resulting-price">
+                $12
+              </div>
+            </div>
+            <div class="result-text">
+              <div class="result-text">
+                Estimated delivery time:
+              </div>
+              <div class="resulting-time">
+                7-9 days
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="button-section">
-      <a class="btn" href="/help">{{ t('sectionFour.buttonText') }}</a>
+
+    <!-- Button -->
+    <div class="button">
+      Detailed Calculation
     </div>
-  </section>
+  </div>
 </template>
 
 <script setup>
-import Card2 from './Card-2.vue';
 import { useI18n } from 'vue-i18n';
-import amazon from '@/assets/images/amazon.png';
-import carters from '@/assets/images/carters.png';
-import sixpm from '@/assets/images/6pm.png';
 
 const { t } = useI18n();
 </script>
 
 <style scoped>
-.section {
+.container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: var(--section-padding-medium);
-  /* Default for desktop */
-  overflow: hidden;
-  color: var(--devil-blue-color-2);
-  background-color: #34ace013;
+  justify-content: space-between;
+  padding: 5vh 5vw;
+  gap: 30px;
+  border-bottom: dashed 2px var(--silver-color);
+  color: var(--grey-color);
+}
+
+
+.main-title-block {
+  color: var(--grey-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+}
+
+.main-title {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.main-description {
+  font-size: 1rem;
+  /* font-weight: bold; */
+}
+
+.cards-block {
+  display: flex;
+  justify-content: center;
+  max-width: 1169px;
+  /* max-height: 568px; */
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  background-color: #F0F0F0;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.card {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
-.top-text {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.big-text {
-  font-size: var(--font-size-big);
-  font-weight: bold;
-}
-
-.small-text {
-  font-size: var(--font-size-small);
-  line-height: 1.2;
-}
-
-.cards {
+.left-block {
+  /* background-color: rgba(127, 255, 212, 0.308); */
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  /* min-width: 500px; */
+  flex: 1;
+  /* min-height: 500px; */
+
+}
+
+.right-block {
+  display: flex;
+  flex-wrap: wrap;
+  /* min-width: 500px; */
+  flex: 1;
+  /* min-height: 500px; */
+
+}
+
+
+
+.img-block {
+  max-width: 100%;
+  height: 120%;
+  display: block;
+
+}
+
+.img-block img {
+  height: 100%;
+  width: 100%;
+  min-width: 200px;
+  object-fit: cover;
+}
+
+.left-block-description {
+  color: #818181;
+  text-align: left;
+  line-height: 1.2;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 10px 0;
+  font-size: 0.875rem;
+  border-top: dashed 2px var(--silver-color);
+}
+
+.left-block-description div {
+  margin: 0;
+  padding: 1px;
+
+}
+
+.result {
+  line-height: 1.2;
   width: 100%;
 }
 
-.cards>* {
-  flex: 1 1 calc(50% - 20px);
-  /* Each card takes up 50% minus the gap */
-  max-width: 40%;
-  /* Ensures no card exceeds 50% of the container width */
-  box-sizing: border-box;
+.result-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
-.button-section {
-  padding: 20px;
-  padding-top: 40px;
+.resulting-price {
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
-.btn {
+.resulting-time {
+  font-size: 1.5rem;
+}
+
+.card-right {
+  padding: 50px;
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.input-block {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* height: 200px; */
+}
+
+.input-1 {
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-2 {
+  flex: 1;
+  min-width: 200px;
+}
+
+
+.card-input {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  border: 2px solid var(--silver-color);
+  font-size: 14px;
+}
+
+.card-input:focus {
+  outline: none;
+  border-color: var(--grey-color);
+  font-family: Montserrat;
+}
+
+.card-input::placeholder {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--silver-color);
+  font-family: Montserrat;
+}
+
+.button-block {
+  width: 100%;
+  border-top: dashed 2px var(--silver-color);
+  /* padding: 40px 0; */
+}
+
+.required {
+  font-size: 0.875rem;
+  color: var(--silver-color);
+}
+
+.button-calculate {
+  margin-top: 20px;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  justify-content: center;
+  border-radius: 1000px;
+  height: 45px;
+  width: 100%;
   font-size: 1rem;
-  height: 60px;
-  color: var(--main-colorL);
   font-weight: 600;
-  background-color: #fff;
-  box-shadow: var(--card-box-shadow);
-  border-radius: 5px;
-  text-decoration: none;
-  text-align: center;
-  white-space: nowrap;
-  transition: background-color 0.3s ease;
+  border: solid 2px var(--grey-color);
+  color: var(--grey-color);
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.btn:hover {
-  background-color: #ffc081da;
+.button-calculate:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 1024px) {
-  .section {
-    padding: var(--section-padding-medium);
-    /* Medium padding for tablet */
-  }
+.button-calculate:active {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--light-grey-color);
+}
 
-  .cards>* {
-    flex: 1 1 calc(100% - 20px);
-    /* On smaller screens, each card takes up 100% */
-    max-width: 100%;
-  }
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
+  height: 45px;
+  width: 220px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: var(--grey-color);
+  color: white;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.button:active {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--grey-color);
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: var(--section-padding-small);
-    /* Smaller padding for mobile */
-  }
 
-  .cards {
-    flex-direction: column;
-  }
-
-  .cards>* {
-    flex: 1 1 100%;
-    max-width: 100%;
+  .card,
+  .card-right {
+    padding: 10px;
   }
 }
 </style>

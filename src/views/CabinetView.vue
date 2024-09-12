@@ -7,7 +7,7 @@
       <SidebarComp />
     </aside>
     <main class="content">
-      <router-view></router-view> 
+      <router-view></router-view>
     </main>
   </div>
 </template>
@@ -24,32 +24,33 @@ import SidebarComp from '@/components/Cabinet/SidebarComp.vue';
     "navbar navbar"
     "sidebar content";
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 80px 1fr;
+  grid-template-rows: 70px 1fr;
   height: 100vh;
   gap: 10px;
 }
 
 .navbar {
   grid-area: navbar;
-  background-color: #fff; 
-  box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   z-index: 1000;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background-color: #f8f9fa; /* Adjust as needed */
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 -1px 3px rgba(0, 0, 0, 0.05); /* Less visible shadow */
+  background-color: #f8f9fa;
+  /* Adjust as needed */
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 -1px 3px rgba(0, 0, 0, 0.05);
+  /* Less visible shadow */
   overflow-y: hidden;
 }
 
 .content {
   grid-area: content;
   padding: 20px;
-  overflow-y: auto; 
+  overflow-y: auto;
   height: 100%;
   background-color: #f8f9fa;
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 -1px 3px rgba(0, 0, 0, 0.05); /* Less visible shadow */
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1), 0 -1px 3px rgba(0, 0, 0, 0.05);
+  /* Less visible shadow */
 }
 
 main {
