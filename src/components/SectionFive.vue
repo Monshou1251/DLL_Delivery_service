@@ -49,11 +49,11 @@ const { t } = useI18n();
 
 <style scoped>
 .container {
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: 5vh 5vw;
     gap: 30px;
     border-bottom: dashed 2px var(--silver-color);
