@@ -1,6 +1,5 @@
 # DLL_Delivery_service
-
-# Delivery Service: USA to Uzbekistan
+## USA to Uzbekistan
 
 Welcome to the Delivery Service app! This project helps users efficiently manage deliveries from the USA to Uzbekistan.
 Only frontend is shared, backend is hidden due to some very very important reasons.
